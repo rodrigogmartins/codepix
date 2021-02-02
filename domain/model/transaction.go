@@ -9,14 +9,12 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
-// TransactionRepositoryInterface interface
 type TransactionRepositoryInterface interface {
 	Register(transaction *Transaction) error
 	Save(transaction *Transaction) error
 	Find(id string) (*Transaction, error)
 }
 
-// TransactionPending
 const (
 	TransactionPending   string = "pending"
 	TransactionCompleted string = "completed"
@@ -24,12 +22,10 @@ const (
 	TransactionConfirmed string = "confirmed"
 )
 
-// Transactions structure
 type Transactions struct {
 	Transaction []*Transaction
 }
 
-// Transaction structure
 type Transaction struct {
 	Base              `valid:"required"`
 	AccountFrom       *Account `valid:"-"`
@@ -66,7 +62,6 @@ func (transaction *Transaction) isValid() error {
 	return nil
 }
 
-// NewTransaction instance
 func NewTransaction(account *Account, amount float64, pixKeyTo *PixKey, description string) (*Transaction, error) {
 	transaction := Transaction{
 		AccountFrom: account,
@@ -88,7 +83,6 @@ func NewTransaction(account *Account, amount float64, pixKeyTo *PixKey, descript
 	return &transaction, nil
 }
 
-// Complete transaction
 func (transaction *Transaction) Complete() error {
 	transaction.Status = TransactionCompleted
 	transaction.UpdatedAt = time.Now()
@@ -98,7 +92,6 @@ func (transaction *Transaction) Complete() error {
 	return err
 }
 
-// Confirm transaction
 func (transaction *Transaction) Confirm() error {
 	transaction.Status = TransactionConfirmed
 	transaction.UpdatedAt = time.Now()
@@ -108,7 +101,6 @@ func (transaction *Transaction) Confirm() error {
 	return err
 }
 
-// Cancel transaction
 func (transaction *Transaction) Cancel(description string) error {
 	transaction.Status = TransactionError
 	transaction.UpdatedAt = time.Now()

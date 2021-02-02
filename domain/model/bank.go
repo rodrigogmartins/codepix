@@ -8,7 +8,6 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
-// Bank structure
 type Bank struct {
 	Base     `valid:"required"`
 	Code     string     `json:"code" valid:"notnull"`
@@ -26,7 +25,6 @@ func (bank *Bank) isValid() error {
 	return nil
 }
 
-// NewBank instance
 func NewBank(code string, name string) (*Bank, error) {
 	bank := Bank{
 		Code: code,

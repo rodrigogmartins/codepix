@@ -8,7 +8,6 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
-// Account structure
 type Account struct {
 	Base      `valid:"required"`
 	OwnerName string    `json:"owner_name" valid:"notnull"`
@@ -27,7 +26,6 @@ func (account *Account) isValid() error {
 	return nil
 }
 
-// NewAccount instance
 func NewAccount(bank *Bank, number string, ownerName string) (*Account, error) {
 	account := Account{
 		OwnerName: ownerName,

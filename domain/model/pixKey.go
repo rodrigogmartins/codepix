@@ -9,7 +9,6 @@ import (
 	"github.com/asaskevich/govalidator"
 )
 
-// PixKeyRepositoryInterface interface
 type PixKeyRepositoryInterface interface {
 	RegisterKey(pixKey *PixKey) (*PixKey, error)
 	FindKeyByKind(kew, string, kind string) (*PixKey, error)
@@ -18,7 +17,6 @@ type PixKeyRepositoryInterface interface {
 	FindAccount(id string) (*Account, error)
 }
 
-// PixKey structure
 type PixKey struct {
 	Base      `valid:"required"`
 	Kind      string   `json:"kind" valid:"notnull"`
@@ -46,7 +44,6 @@ func (pixKey *PixKey) isValid() error {
 	return nil
 }
 
-// NewPixKey instance
 func NewPixKey(kind string, account *Account, key string) (*PixKey, error) {
 	pixKey := PixKey{
 		Kind:    kind,
