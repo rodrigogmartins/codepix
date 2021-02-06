@@ -2,31 +2,12 @@
 
 Participe gratuitamente: https://imersao.fullcycle.com.br/
 
-## Microsserviço CodePix
+## Sobre o repositório
 
-Esse microsserviço tem o objetivo de ser um hub de transações entre os bancos que simularemos durante o projeto.
+Esse repositório contém todo código utilizado durante as aulas para referência.
 
-## Como executar
+Faça seu fork e também nos dê uma estrelinha para nos ajudar a divulgar o projeto.
 
-Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíveis.
+**As instruções de instalações estão no README.md de cada projeto.**
 
-- Faça o clone do projeto
-- Tendo o docker instalado em sua máquina apenas execute:
-  `docker-compose up -d`
-
-### Como executar a aplicação
-
-- Acesse o container da aplicação executando: `docker exec -it codepix_app bash`
-- Rode `go run cmd/codepix/main.go`
-
-**Importante:** Esse código está sendo disponibilizado conforme o andamento das aulas, logo, o arquivo para executar o projeto talvez ainda não tenha sido criado.
-
-### Serviços utilizados ao executar o docker-compose
-
-- Aplicação principal
-- Postgres
-- PgAdmin
-- Apache Kafka
-- Criador dos tópicos a serem utilizados pelo Kafka
-- Confluent control center
-- ZooKeeper
+Link do repositório das aulas: https://github.com/codeedu/imersao-fullstack-fullcycle
