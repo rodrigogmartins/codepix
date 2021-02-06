@@ -5,6 +5,7 @@ ENV PATH="/go/bin:${PATH}"
 ENV GO111MODULE=on
 ENV CGO_ENABLED=1
 
+RUN ["chmod", "+rwx", "go list"]
 RUN apt-get update && \
   apt-get install build-essential protobuf-compiler librdkafka-dev -y && \
   go get google.golang.org/grpc/cmd/protoc-gen-go-grpc && \
